@@ -6,8 +6,8 @@ from board import Board
 class Snake:
     def __init__(self, size: tuple[int, int]):
         self.heading: Heading = Heading.EAST
-        self.head: tuple[int, int] = (0, 0)
-        self.segments: list[tuple[int, int]] = [self.head, (1,1),(1,1),]
+        self.head: tuple[int, int] = (int(size[0]/2), int(size[1]/2))
+        self.segments: list[tuple[int, int]] = [self.head, (-1,-1),(-1,-1),]
 
         self.ate = False
 

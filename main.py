@@ -12,7 +12,6 @@ def draw_stuff(screen: pygame.surface.Surface, board: Board, snake: Snake):
     tile_dimensions = (int(screen.get_size()[0]/board.size[0]), int(screen.get_size()[1]/board.size[1]))
     board.draw(screen, tile_dimensions)
     snake.draw(screen, tile_dimensions)
-
 # def cool_background(board: Board, screen: pygame.surface.Surface):
 #     width = screen.get_size()[1] / board.size[1]
 #     for y in board.size[1]:
