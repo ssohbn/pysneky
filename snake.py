@@ -65,6 +65,7 @@ class Snake:
             self.eat()
             board.generate_food()
 
+        # u can go into right and bottom walls. fix later or dont idk
         elif self.head[0] < 0 or self.head[1] < 0 or self.head[0] > board.size[0] or self.head[1] > board.size[1]:
             return False
 
