@@ -28,6 +28,7 @@ class Board:
                         screen.get_size()[0],
                         y*tile_dimensions[1] + tile_dimensions[1])
 
+            # background bars
             if y % 2 == 0:
                 pygame.draw.rect(screen,
                         (150,200,150),

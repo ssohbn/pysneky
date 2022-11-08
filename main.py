@@ -1,7 +1,11 @@
 import pygame
+from pygame.event import wait
 from board import Board
 from snake import Snake
 
+SCREEN_DIMENSIONS = (640, 640)
+FPS = 60
+GAME_SIZE = (10, 10)
 
 def new_game(size: tuple[int, int]) -> Board:
     board = Board(size)
@@ -17,17 +21,14 @@ def draw_stuff(screen: pygame.surface.Surface, board: Board, snake: Snake):
 #     for y in board.size[1]:
 #         pygame.draw.rect(screen, (200, 230, 200), pygame.Rect(screen, (y,0))) # do this later idk
 
-SCREEN_DIMENSIONS = (640, 640)
-FPS = 50
-
 if __name__ == "__main__":
     pygame.init()
 
     screen = pygame.display.set_mode(SCREEN_DIMENSIONS)
     clock = pygame.time.Clock()
 
-    board = new_game((16, 16))
-    snake = Snake((16, 16))
+    board = new_game(GAME_SIZE)
+    snake = Snake(GAME_SIZE)
 
     i = 0
     living = True
@@ -49,4 +50,5 @@ if __name__ == "__main__":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
+
 

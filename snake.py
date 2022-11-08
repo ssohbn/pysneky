@@ -21,16 +21,16 @@ class Snake:
 
     def change_heading(self, pressed_keys: Sequence[bool]):
 
-        if pressed_keys[pygame.K_w] and self.heading != Heading.SOUTH:
+        if pressed_keys[pygame.K_w] or pressed_keys[pygame.K_UP] and self.heading != Heading.SOUTH:
             self.heading = Heading.NORTH
 
-        elif pressed_keys[pygame.K_d] and self.heading != Heading.WEST:
+        elif pressed_keys[pygame.K_d] or pressed_keys[pygame.K_RIGHT] and self.heading != Heading.WEST:
             self.heading = Heading.EAST
 
-        elif pressed_keys[pygame.K_s] and self.heading != Heading.NORTH:
+        elif pressed_keys[pygame.K_s] or pressed_keys[pygame.K_DOWN] and self.heading != Heading.NORTH:
             self.heading = Heading.SOUTH
 
-        elif pressed_keys[pygame.K_a] and self.heading != Heading.EAST:
+        elif pressed_keys[pygame.K_a] or pressed_keys[pygame.K_LEFT] and self.heading != Heading.EAST:
             self.heading = Heading.WEST
 
     def move(self):
@@ -66,7 +66,7 @@ class Snake:
             board.generate_food()
 
         # u can go into right and bottom walls. fix later or dont idk
-        elif self.head[0] < 0 or self.head[1] < 0 or self.head[0] > board.size[0] or self.head[1] > board.size[1]:
+        elif self.head[0] < 0 or self.head[1] < 0 or self.head[0] > board.size[0]-1 or self.head[1] > board.size[1]-1:
             return False
 
         return True
